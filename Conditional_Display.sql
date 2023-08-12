@@ -55,7 +55,7 @@ INSERT INTO @tbl_3 VALUES(1,'10/7/2009',-64)
 
 --Answer SQL Script:
 SELECT tm.*,
---If use Azure Sql server use it
+--If using Azure SQL server, use it
       --LEAST(t1.vol, t2.vol, t3.vol) as ValMin,
        --Greatest(t1.vol, t2.vol, t3.vol) as ValMax,
 	   (select max(i) from (values (t1.vol), (t2.vol), (t3.vol)) AS T(i)) [Greatest],
@@ -94,7 +94,6 @@ FROM @tbl_mstr tm
     LEFT JOIN @tbl_3 t3
         ON t3.id = tm.id
            AND tm.dt = t3.dt
-	--CROSS APPLY (VALUES (ISNULL(t1.vol,0)),(ISNULL(t2.vol,0)),(ISNULL(t3.vol,0))) AS T(vol)
 
 
 --Results:
